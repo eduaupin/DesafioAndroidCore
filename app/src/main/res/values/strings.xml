@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DesafioAndroidCore</string>
+    <string name="toolbarTitle">Digital House Foods</string>
+    <string name="emailLogin">E-mail</string>
+    <string name="senhaLogin">Password</string>
+    <string name="txtBtnLogin">LOG IN</string>
+    <string name="or">OR</string>
+    <string name="registerLogin">Register</string>
+    <string name="repeatPassword">Repeat Password</string>
+    <string name="nomeRegister">Nome</string>
+    <string name="setting_tittle_menu">Setting</string>
+    <string name="profile_menu">Profile</string>
+    <string name="pratos_principais">Pratos principais</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nome_do_prato">Nome do prato</string>
+</resources>
