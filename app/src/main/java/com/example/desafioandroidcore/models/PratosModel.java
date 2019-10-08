@@ -9,10 +9,7 @@ public class PratosModel implements Parcelable {
     private String descPrato;
 
     //construtor prato
-    public PratosModel(int imagemPrato, String nomePrato){
-        this.imagemPrato = imagemPrato;
-        this.nomePrato = nomePrato;
-    }
+
     public PratosModel(int imagemPrato, String nomePrato, String descPrato) {
         this.imagemPrato = imagemPrato;
         this.nomePrato = nomePrato;

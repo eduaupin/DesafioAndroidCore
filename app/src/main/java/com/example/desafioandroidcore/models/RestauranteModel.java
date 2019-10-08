@@ -97,10 +97,10 @@ public class RestauranteModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(imagemRestaurante);
         dest.writeString(nomeRestaurante);
         dest.writeString(enderecoRestaurante);
         dest.writeString(horarioFechamento);
-        dest.writeInt(imagemRestaurante);
         dest.writeList(listaDePratos);
     }
 }
