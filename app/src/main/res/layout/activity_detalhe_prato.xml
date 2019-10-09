@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.activities.DetalhePratoActivity"
+    android:background="@color/colorWhite">
+    <ImageView
+        android:id="@+id/imagemPrato"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/restaurante3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="0dp"/>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:titleTextColor="@color/colorWhite"
+            app:navigationIcon="@drawable/icon_back"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <TextView
+        android:id="@+id/nomePrato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NomeRestaurante"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imagemPrato"
+        app:layout_constraintStart_toStartOf="@+id/imagemPrato" />
+
+    <TextView
+        android:id="@+id/descPrato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/pratos_principais"
+        android:textColor="@color/colorGray"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagemPrato" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

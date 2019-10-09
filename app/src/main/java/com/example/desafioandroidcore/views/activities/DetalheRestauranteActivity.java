@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.desafioandroidcore.R;
 import com.example.desafioandroidcore.adapters.PratosAdapter;
+import com.example.desafioandroidcore.interfaces.RecyclerViewOnClickPratos;
 import com.example.desafioandroidcore.models.PratosModel;
 import com.example.desafioandroidcore.models.RestauranteModel;
 
@@ -27,12 +28,14 @@ import java.util.List;
 
 import static com.example.desafioandroidcore.views.activities.HomeActivity.RESTAURANTE_KEY;
 
-public class DetalheRestauranteActivity extends AppCompatActivity {
+public class DetalheRestauranteActivity extends AppCompatActivity implements RecyclerViewOnClickPratos {
     private ImageView imagemRestaurante;
     private TextView nomeRestaurante;
     private List<PratosModel> listaDePratos = new ArrayList<>();
     private RecyclerView recyclerPratos;
     private PratosAdapter adapter;
+
+    public static final String PRATOS_KEY = "pratos";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +48,7 @@ public class DetalheRestauranteActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetalheRestauranteActivity.this, HomeActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -62,7 +64,7 @@ public class DetalheRestauranteActivity extends AppCompatActivity {
 
                 listaDePratos = restauranteModel.getListaDePratos();
 
-                adapter = new PratosAdapter(listaDePratos);
+                adapter = new PratosAdapter(listaDePratos, this);
 
                 GridLayoutManager linearLayout = new GridLayoutManager(this, 2);
 
@@ -77,5 +79,14 @@ public class DetalheRestauranteActivity extends AppCompatActivity {
         imagemRestaurante = findViewById(R.id.imagemRestaurante);
         nomeRestaurante = findViewById(R.id.nomeRestaurante);
         recyclerPratos = findViewById(R.id.recyclerPratos);
+    }
+
+    @Override
+    public void onClick(PratosModel pratosModel) {
+        Intent intent = new Intent(this, DetalhePratoActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(PRATOS_KEY, pratosModel);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

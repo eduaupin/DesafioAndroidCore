@@ -26,18 +26,27 @@ public class LoginActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
+
+                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(intent);
             }
         });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (inputEmail.getEditText().getText().toString() != "" &&
-                inputSenha.getEditText().getText().toString() != ""){
+
+                if (!inputEmail.getEditText().getText().toString().isEmpty() &&
+                !inputSenha.getEditText().getText().toString().isEmpty()){
+
                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(intent);
+
+                }else{
+
+                    inputEmail.setError("Campo obrigatório");
+                    inputSenha.setError("Campo obrigatório");
+
                 }
             }
         });

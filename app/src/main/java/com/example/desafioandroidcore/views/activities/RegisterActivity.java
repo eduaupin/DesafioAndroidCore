@@ -39,11 +39,15 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(inputNome.getEditText() != null && inputEmail.getEditText().getText()!= null
-                        && inputSenha.getEditText().getText() != null && inputRepeatSenha.getEditText().getText()!= null
-                        && inputSenha.getEditText().getText().toString().equals(inputRepeatSenha.getEditText().getText().toString())) {
+                if(!inputNome.getEditText().getText().toString().isEmpty() &&
+                !inputEmail.getEditText().getText().toString().isEmpty() &&
+                !inputSenha.getEditText().getText().toString().isEmpty() &&
+                !inputRepeatSenha.getEditText().getText().toString().isEmpty() && inputSenha.getEditText().getText().toString().equals(inputRepeatSenha.getEditText().getText().toString())) {
+
                     Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+
                     startActivity(intent);
+
                 }else if(!inputSenha.getEditText().getText().toString().equals(inputRepeatSenha.getEditText().getText().toString())){
                     inputSenha.setError("As senhas devem ser iguais");
                     inputRepeatSenha.setError("As senhas devem ser iguais");

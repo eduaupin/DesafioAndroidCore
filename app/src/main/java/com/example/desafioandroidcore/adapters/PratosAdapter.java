@@ -11,15 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desafioandroidcore.R;
+import com.example.desafioandroidcore.interfaces.RecyclerViewOnClickPratos;
 import com.example.desafioandroidcore.models.PratosModel;
 
 import java.util.List;
 
 public class PratosAdapter extends RecyclerView.Adapter<PratosAdapter.ViewHolder> {
     private List<PratosModel> listaDePratos;
+    private RecyclerViewOnClickPratos listener;
 
-    public PratosAdapter(List<PratosModel> listaDePratos) {
+    public PratosAdapter(List<PratosModel> listaDePratos, RecyclerViewOnClickPratos listener) {
         this.listaDePratos = listaDePratos;
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,8 +34,15 @@ public class PratosAdapter extends RecyclerView.Adapter<PratosAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        PratosModel pratosModel = listaDePratos.get(position);
+        final PratosModel pratosModel = listaDePratos.get(position);
         holder.bind(pratosModel);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(pratosModel);
+            }
+        });
     }
 
     @Override

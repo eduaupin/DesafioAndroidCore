@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -20,12 +21,13 @@ import com.example.desafioandroidcore.models.RestauranteModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements RecyclerViewOnClick {
+public class HomeActivity extends AppCompatActivity implements RecyclerViewOnClick{
     private RecyclerView recyclerHome;
     private List<RestauranteModel> listaDeRestaurantes;
     private List<PratosModel> listaDePratos;
     private RestauranteAdapter restauranteAdapter;
     public static final String RESTAURANTE_KEY = "restaurante";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerViewOnCli
 
         //iniciando toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-
+        setSupportActionBar(toolbar);
         //iniciando componentes da página
         initViews();
 
@@ -50,7 +52,12 @@ public class HomeActivity extends AppCompatActivity implements RecyclerViewOnCli
         recyclerHome.setLayoutManager(linearLayoutManager);
 
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_item, menu);
+        return true;
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -59,9 +66,10 @@ public class HomeActivity extends AppCompatActivity implements RecyclerViewOnCli
 
         //Verifica se o id recebido é igual ao do layout e realiza uma ação
         if (id == R.id.action_settings) {
-//            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
-//            startActivity(intent);
-            Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+            startActivity(intent);
+
+            //Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show();
 
             return true;
         }
