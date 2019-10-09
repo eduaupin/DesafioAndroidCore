@@ -8,18 +8,14 @@ public class PratosModel implements Parcelable {
     private String nomePrato;
     private String descPrato;
 
-    //construtor prato
+    public PratosModel() {
+    }
 
     public PratosModel(int imagemPrato, String nomePrato, String descPrato) {
         this.imagemPrato = imagemPrato;
         this.nomePrato = nomePrato;
         this.descPrato = descPrato;
     }
-
-    public PratosModel() {
-    }
-
-    //getters and setters
 
     protected PratosModel(Parcel in) {
         imagemPrato = in.readInt();

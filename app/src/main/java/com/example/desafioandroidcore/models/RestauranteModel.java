@@ -13,7 +13,7 @@ public class RestauranteModel implements Parcelable {
     private String horarioFechamento;
     private List<PratosModel> listaDePratos;
 
-    //construtor de Restaurante
+    //Construtores
 
 
     public RestauranteModel(int imagemRestaurante, String nomeRestaurante, String enderecoRestaurante, String horarioFechamento, List<PratosModel> listaDePratos) {
@@ -27,6 +27,7 @@ public class RestauranteModel implements Parcelable {
     public RestauranteModel() {
     }
 
+    //Getters and Setters
 
     protected RestauranteModel(Parcel in) {
         imagemRestaurante = in.readInt();
@@ -48,7 +49,6 @@ public class RestauranteModel implements Parcelable {
         }
     };
 
-    // getters and setters
     public int getImagemRestaurante() {
         return imagemRestaurante;
     }
@@ -88,7 +88,6 @@ public class RestauranteModel implements Parcelable {
     public void setListaDePratos(List<PratosModel> listaDePratos) {
         this.listaDePratos = listaDePratos;
     }
-
 
     @Override
     public int describeContents() {

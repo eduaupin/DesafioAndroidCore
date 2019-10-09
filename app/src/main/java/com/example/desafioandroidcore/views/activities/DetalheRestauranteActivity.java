@@ -28,29 +28,35 @@ public class DetalheRestauranteActivity extends AppCompatActivity {
     private List<PratosModel> listaDePratos = new ArrayList<>();
     private RecyclerView recyclerPratos;
     private PratosAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe_restaurante);
         initViews();
 
-        Intent intent  = getIntent();
-        RestauranteModel restauranteModel = intent.getParcelableExtra(RESTAURANTE_KEY);
-        Drawable drawable = getResources().getDrawable(restauranteModel.getImagemRestaurante());
-        imagemRestaurante.setImageDrawable(drawable);
-        nomeRestaurante.setText(restauranteModel.getNomeRestaurante());
+        if (getIntent() != null) {
+            RestauranteModel restauranteModel = getIntent().getParcelableExtra(RESTAURANTE_KEY);
+            if (restauranteModel != null){
 
-        listaDePratos = restauranteModel.getListaDePratos();
+            }
+            Drawable drawable = getResources().getDrawable(restauranteModel.getImagemRestaurante());
 
-        adapter = new PratosAdapter(listaDePratos);
+            imagemRestaurante.setImageDrawable(drawable);
+            nomeRestaurante.setText(restauranteModel.getNomeRestaurante());
 
-        LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-        recyclerPratos.setAdapter(adapter);
-        recyclerPratos.setLayoutManager(linearLayout);
+            listaDePratos = restauranteModel.getListaDePratos();
+
+            adapter = new PratosAdapter(listaDePratos);
+
+            LinearLayoutManager linearLayout = new LinearLayoutManager(this);
+            recyclerPratos.setAdapter(adapter);
+            recyclerPratos.setLayoutManager(linearLayout);
 
 
+        }
     }
-    public void initViews(){
+    public void initViews () {
         imagemRestaurante = findViewById(R.id.imagemRestaurante);
         nomeRestaurante = findViewById(R.id.nomeRestaurante);
         recyclerPratos = findViewById(R.id.recyclerPratos);
