@@ -1,5 +1,6 @@
 package com.example.desafioandroidcore.models;
 
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -8,14 +9,19 @@ public class PratosModel implements Parcelable {
     private String nomePrato;
     private String descPrato;
 
-    public PratosModel() {
-    }
+    //Construtores
 
     public PratosModel(int imagemPrato, String nomePrato, String descPrato) {
         this.imagemPrato = imagemPrato;
         this.nomePrato = nomePrato;
         this.descPrato = descPrato;
     }
+
+    public PratosModel() {
+    }
+
+    //Getters and Setters
+
 
     protected PratosModel(Parcel in) {
         imagemPrato = in.readInt();
@@ -58,6 +64,7 @@ public class PratosModel implements Parcelable {
     public void setDescPrato(String descPrato) {
         this.descPrato = descPrato;
     }
+
 
     @Override
     public int describeContents() {

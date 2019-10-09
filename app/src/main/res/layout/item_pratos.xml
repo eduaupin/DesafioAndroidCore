@@ -2,13 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:layout_width="150dp"
+    android:layout_margin="20dp"
+    android:layout_height="wrap_content">
+
     <androidx.cardview.widget.CardView
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="130dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        android:background="@color/colorWhite"
+        app:elevation="2dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,7 +29,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:padding="10dp"
+                    android:textColor="@color/colorGray"
+                    android:background="@color/colorWhite"
                     android:text="@string/nome_do_prato"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

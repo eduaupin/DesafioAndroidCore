@@ -30,12 +30,23 @@ public class HomeActivity extends AppCompatActivity implements RecyclerViewOnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //iniciando toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
+
+        //iniciando componentes da página
         initViews();
 
+        //setando adapter para o recycler
         restauranteAdapter = new RestauranteAdapter(popularRestaurantes(), this);
+
+        // configurando layout do recycler
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        //aplicando adapter no recycler
         recyclerHome.setAdapter(restauranteAdapter);
+
+        //aplicando layout no recycler
         recyclerHome.setLayoutManager(linearLayoutManager);
 
     }

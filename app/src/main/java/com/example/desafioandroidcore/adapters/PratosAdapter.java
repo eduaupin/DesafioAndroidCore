@@ -41,18 +41,22 @@ public class PratosAdapter extends RecyclerView.Adapter<PratosAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+
         private TextView nomePrato;
         private ImageView imagemPrato;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imagemPrato = itemView.findViewById(R.id.imagemPrato);
             nomePrato = itemView.findViewById(R.id.nomeDoPrato);
+
         }
         public void bind(PratosModel pratosModel){
+
             Drawable drawable = itemView.getResources().getDrawable(pratosModel.getImagemPrato());
             imagemPrato.setImageDrawable(drawable);
             nomePrato.setText(pratosModel.getNomePrato());
+
         }
     }
 }
-

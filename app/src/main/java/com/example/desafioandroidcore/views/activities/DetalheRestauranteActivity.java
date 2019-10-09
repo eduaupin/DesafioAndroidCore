@@ -1,6 +1,9 @@
 package com.example.desafioandroidcore.views.activities;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,27 +40,39 @@ public class DetalheRestauranteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalhe_restaurante);
         initViews();
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.icon_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetalheRestauranteActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         if (getIntent() != null) {
-            RestauranteModel restauranteModel = getIntent().getParcelableExtra(RESTAURANTE_KEY);
+            RestauranteModel restauranteModel = getIntent().getExtras().getParcelable(RESTAURANTE_KEY);
+
             if (restauranteModel != null){
 
+                Drawable drawable = getResources().getDrawable(restauranteModel.getImagemRestaurante());
+                imagemRestaurante.setImageDrawable(drawable);
+
+                nomeRestaurante.setText(restauranteModel.getNomeRestaurante());
+
+                listaDePratos = restauranteModel.getListaDePratos();
+
+                adapter = new PratosAdapter(listaDePratos);
+
+                GridLayoutManager linearLayout = new GridLayoutManager(this, 2);
+
+                recyclerPratos.setAdapter(adapter);
+
+                recyclerPratos.setLayoutManager(linearLayout);
             }
-            Drawable drawable = getResources().getDrawable(restauranteModel.getImagemRestaurante());
-
-            imagemRestaurante.setImageDrawable(drawable);
-            nomeRestaurante.setText(restauranteModel.getNomeRestaurante());
-
-            listaDePratos = restauranteModel.getListaDePratos();
-
-            adapter = new PratosAdapter(listaDePratos);
-
-            LinearLayoutManager linearLayout = new LinearLayoutManager(this);
-            recyclerPratos.setAdapter(adapter);
-            recyclerPratos.setLayoutManager(linearLayout);
-
-
         }
     }
+
     public void initViews () {
         imagemRestaurante = findViewById(R.id.imagemRestaurante);
         nomeRestaurante = findViewById(R.id.nomeRestaurante);

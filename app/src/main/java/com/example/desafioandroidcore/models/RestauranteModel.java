@@ -100,6 +100,6 @@ public class RestauranteModel implements Parcelable {
         dest.writeString(nomeRestaurante);
         dest.writeString(enderecoRestaurante);
         dest.writeString(horarioFechamento);
-        dest.writeList(listaDePratos);
+        dest.writeTypedList(listaDePratos);
     }
 }
