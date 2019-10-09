@@ -3,19 +3,14 @@ package com.example.desafioandroidcore.views.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.desafioandroidcore.R;
 import com.example.desafioandroidcore.models.PratosModel;
-import com.example.desafioandroidcore.models.RestauranteModel;
-
 import static com.example.desafioandroidcore.views.activities.DetalheRestauranteActivity.PRATOS_KEY;
-import static com.example.desafioandroidcore.views.activities.HomeActivity.RESTAURANTE_KEY;
 
 public class DetalhePratoActivity extends AppCompatActivity {
     private ImageView imagemPrato;

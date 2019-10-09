@@ -5,19 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
 import com.example.desafioandroidcore.R;
 import com.example.desafioandroidcore.adapters.RestauranteAdapter;
 import com.example.desafioandroidcore.interfaces.RecyclerViewOnClick;
 import com.example.desafioandroidcore.models.PratosModel;
 import com.example.desafioandroidcore.models.RestauranteModel;
-
 import java.util.ArrayList;
 import java.util.List;
 

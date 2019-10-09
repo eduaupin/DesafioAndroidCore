@@ -1,31 +1,22 @@
 package com.example.desafioandroidcore.views.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.desafioandroidcore.R;
 import com.example.desafioandroidcore.adapters.PratosAdapter;
 import com.example.desafioandroidcore.interfaces.RecyclerViewOnClickPratos;
 import com.example.desafioandroidcore.models.PratosModel;
 import com.example.desafioandroidcore.models.RestauranteModel;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.example.desafioandroidcore.views.activities.HomeActivity.RESTAURANTE_KEY;
 
 public class DetalheRestauranteActivity extends AppCompatActivity implements RecyclerViewOnClickPratos {
