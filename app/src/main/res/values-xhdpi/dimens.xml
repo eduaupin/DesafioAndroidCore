@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dimen_imagem_item_recycler">200dp</dimen>
-    <dimen name="dimen_margin_item_recycler">10dp</dimen>
+    <dimen name="dimen_margin_item_recycler">20dp</dimen>
     <dimen name="dimen_width_item_recycler">150dp</dimen>
 </resources>
